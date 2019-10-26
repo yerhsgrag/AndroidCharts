@@ -21,6 +21,7 @@ public class PieView extends View {
             Color.parseColor("#33B5E5"), Color.parseColor("#AA66CC"), Color.parseColor("#99CC00"),
             Color.parseColor("#FFBB33"), Color.parseColor("#FF4444")
     };
+	private final int MIN_ANGLE_FOR_PERCENT_TEXT = 5;
     private Paint cirPaint;
     private Paint whiteLinePaint;
     private Point pieCenterPoint;
@@ -168,6 +169,7 @@ public class PieView extends View {
 
     private void drawPercentText(Canvas canvas, PieHelper pieHelper) {
         if (!showPercentLabel) return;
+		if (intPercent <= MIN_ANGLE_FOR_PERCENT_TEXT) return;
         float angel = (pieHelper.getStartDegree() + pieHelper.getEndDegree()) / 2;
         int sth = 1;
         if (angel % 360 > 180 && angel % 360 < 360) {

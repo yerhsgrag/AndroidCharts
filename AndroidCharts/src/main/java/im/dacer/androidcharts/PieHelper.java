@@ -84,6 +84,11 @@ public class PieHelper {
         return String.valueOf((int) percent) + "%";
     }
 
+    int getPercent() {
+        float percent = sweepDegree / 360 * 100;
+        return (int) percent;
+    }
+
     public int getColor() {
         return color;
     }
